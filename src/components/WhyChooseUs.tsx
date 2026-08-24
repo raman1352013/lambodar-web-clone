@@ -7,39 +7,32 @@ const WhyChooseUs = () => {
   const { content } = useSiteContent();
 
   return (
-    <section className="py-20 bg-slate-900 text-white relative">
-      <div className="container mx-auto px-4 max-w-6xl">
-        
-        {/* Video Box */}
-        <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl mb-12 border border-slate-800 bg-slate-950">
-          <video
-            muted
-            controls
-            className="w-full h-auto rounded-3xl"
-            poster="https://lambodragroup.com/wp-content/uploads/2026/05/Final_Hero_Section-banner.png"
-          >
-            <source src="https://lambodragroup.com/wp-content/uploads/2026/03/Final_Homepage_Video_updated.mp4" type="video/mp4" />
-          </video>
-        </div>
+    <section className="py-20 bg-slate-900 text-white relative font-sans">
+      <div className="container mx-auto px-4 max-w-7xl">
 
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white">
+        <div className="text-center mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 text-[#fe7d05] font-semibold text-sm">
+            <img src="https://lambodragroup.com/wp-content/uploads/2025/12/leftarrow.png" alt="" className="h-3 w-auto" />
+            <span className="uppercase text-xs tracking-wider font-bold">Why Choose Us</span>
+            <img src="https://lambodragroup.com/wp-content/uploads/2025/12/rightaroow.png" alt="" className="h-3 w-auto" />
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
             {content.excellence.title}
           </h2>
         </div>
 
-        {/* 5 Pillars Grid */}
+        {/* 5 Excellence Cards Grid (Spacious, Clear & Exact Content) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {content.excellence.pillars.map((pillar, idx) => {
             const FallbackIcon = fallbackIcons[idx % fallbackIcons.length];
             return (
               <div
                 key={idx}
-                className="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl text-center space-y-3 hover:border-[#fe7d05] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                className="bg-slate-800/90 border border-slate-700/80 p-7 rounded-3xl text-center space-y-4 hover:border-[#fe7d05] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between shadow-xl"
               >
                 <div>
-                  <div className="h-16 w-16 mx-auto mb-4 flex items-center justify-center text-[#fe7d05]">
+                  <div className="h-20 w-20 mx-auto mb-5 flex items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-slate-700/50">
                     <img
                       src={pillar.iconUrl}
                       alt={pillar.title}
@@ -49,10 +42,10 @@ const WhyChooseUs = () => {
                       }}
                     />
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 leading-snug">
+                  <h3 className="text-lg font-extrabold text-white mb-3 leading-snug">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     {pillar.description}
                   </p>
                 </div>

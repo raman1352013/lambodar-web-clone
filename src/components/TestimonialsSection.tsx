@@ -4,6 +4,8 @@ import { useSiteContent } from "./SiteContentProvider";
 const TestimonialsSection = () => {
   const { content } = useSiteContent();
 
+  const defaultAvatar = "https://lambodragroup.com/wp-content/uploads/2025/12/testi-1.png";
+
   return (
     <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -42,9 +44,12 @@ const TestimonialsSection = () => {
 
               <div className="pt-4 border-t border-slate-100 flex items-center gap-4">
                 <img
-                  src={item.imageUrl}
+                  src={item.imageUrl || defaultAvatar}
                   alt={item.name}
-                  className="h-12 w-12 rounded-full object-cover border-2 border-[#fe7d05]"
+                  className="h-12 w-12 rounded-full object-cover border-2 border-[#fe7d05] shrink-0"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = defaultAvatar;
+                  }}
                 />
                 <div>
                   <h4 className="font-bold text-[#0f172a] text-base">{item.name}</h4>

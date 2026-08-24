@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSiteContent } from "./SiteContentProvider";
-import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   const { content } = useSiteContent();
@@ -10,7 +10,7 @@ const Footer = () => {
   const phoneRaw = content?.contact?.phone || "+233 55 11 222 33";
   const phoneClean = phoneRaw.replace(/\s+/g, "");
   const email = content?.contact?.email || "info@lambodragroup.com";
-  const address = content?.contact?.address || "#213,1st Floor, Shell Sign Board, Spintex Rd, Accra, Ghana";
+  const address = content?.contact?.address || "#213, 1st Floor, Shell Sign Board, Spintex Rd, Accra, Ghana";
 
   return (
     <footer className="bg-[#ffe4bd] text-slate-900 font-sans relative">
@@ -45,7 +45,7 @@ const Footer = () => {
       <div className="py-12 container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
           
-          {/* Col 1: Logo */}
+          {/* Col 1: Logo & Intro */}
           <div className="space-y-4">
             <div className="bg-white p-3 rounded-full inline-block shadow-sm border border-amber-200">
               <img
@@ -62,25 +62,41 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Col 2: Web Solution */}
+          {/* Col 2: Web Solution & Network */}
           <div className="space-y-3">
-            <h4 className="text-2xl font-black text-[#e05500] tracking-tight">
+            <h4 className="text-xl font-black text-[#e05500] tracking-tight border-b border-amber-300/60 pb-1">
               Web Solution
             </h4>
-            <ul className="space-y-2 text-sm font-semibold text-slate-800">
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-800">
               <li>
                 <Link to="/services/web-solution" className="hover:text-[#fe7d05] transition-colors">
                   Web Solution
                 </Link>
               </li>
               <li>
-                <Link to="/services/network-security" className="hover:text-[#fe7d05] transition-colors">
-                  Network & Security
+                <Link to="/services/digital-marketing" className="hover:text-[#fe7d05] transition-colors">
+                  Digital Marketing
+                </Link>
+              </li>
+            </ul>
+
+            <h4 className="text-xl font-black text-[#e05500] tracking-tight border-b border-amber-300/60 pb-1 pt-2">
+              Network
+            </h4>
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-800">
+              <li>
+                <Link to="/services/sophos" className="hover:text-[#fe7d05] transition-colors">
+                  Sophos
                 </Link>
               </li>
               <li>
-                <Link to="/services/cloud-calling" className="hover:text-[#fe7d05] transition-colors">
-                  Cloud Calling VoIP
+                <Link to="/services/fortigate" className="hover:text-[#fe7d05] transition-colors">
+                  FortiGate
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/cctv-solution" className="hover:text-[#fe7d05] transition-colors">
+                  CCTV Solution
                 </Link>
               </li>
             </ul>
@@ -88,13 +104,23 @@ const Footer = () => {
 
           {/* Col 3: Erp Solution */}
           <div className="space-y-3">
-            <h4 className="text-2xl font-black text-[#e05500] tracking-tight">
+            <h4 className="text-xl font-black text-[#e05500] tracking-tight border-b border-amber-300/60 pb-1">
               Erp Solution
             </h4>
-            <ul className="space-y-2 text-sm font-semibold text-slate-800">
+            <ul className="space-y-1.5 text-xs font-semibold text-slate-800">
               <li>
-                <Link to="/services/erp-software" className="hover:text-[#fe7d05] transition-colors">
-                  Fugen Erp
+                <Link to="/services/customized-erp-solution" className="hover:text-[#fe7d05] transition-colors">
+                  Fugen ERP
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/microsoft-solution" className="hover:text-[#fe7d05] transition-colors">
+                  Microsoft Solution
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/google-workspace" className="hover:text-[#fe7d05] transition-colors">
+                  Google Workspace
                 </Link>
               </li>
               <li>
@@ -103,8 +129,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services/microsoft-solution" className="hover:text-[#fe7d05] transition-colors">
-                  Microsoft 365
+                <Link to="/services/custom-software-solutions" className="hover:text-[#fe7d05] transition-colors">
+                  Custom Software Solutions
                 </Link>
               </li>
             </ul>
@@ -112,29 +138,29 @@ const Footer = () => {
 
           {/* Col 4: Contact Us */}
           <div className="space-y-4">
-            <h4 className="text-2xl font-black text-[#e05500] tracking-tight">
+            <h4 className="text-xl font-black text-[#e05500] tracking-tight border-b border-amber-300/60 pb-1">
               Contact Us
             </h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs">
               <li className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Phone className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <Phone className="h-3.5 w-3.5" />
                 </div>
-                <a href={`tel:${phoneClean}`} className="hover:text-[#fe7d05] font-extrabold text-slate-900 text-base">
+                <a href={`tel:${phoneClean}`} className="hover:text-[#fe7d05] font-extrabold text-slate-900 text-sm">
                   {phoneRaw}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <div className="h-9 w-9 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <Mail className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <Mail className="h-3.5 w-3.5" />
                 </div>
-                <a href={`mailto:${email}`} className="hover:text-[#fe7d05] font-bold text-slate-900 text-sm">
+                <a href={`mailto:${email}`} className="hover:text-[#fe7d05] font-bold text-slate-900 text-xs">
                   {email}
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <div className="h-9 w-9 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
-                  <MapPin className="h-4 w-4" />
+                <div className="h-8 w-8 rounded-full bg-[#fe7d05] text-white flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                  <MapPin className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-slate-800 text-xs font-semibold leading-relaxed">
                   {address}

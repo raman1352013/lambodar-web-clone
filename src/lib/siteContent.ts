@@ -217,8 +217,8 @@ export const defaultSiteContent: SiteContent = {
     ]
   },
   hero: {
-    bannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2026/05/Final_Hero_Section-banner.png",
-    mobileBannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2026/05/Hero_Section_Banner_Mobile_Banner.png",
+    bannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/banner-1.png",
+    mobileBannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/banner-1.png",
     ctaHref: "/contact"
   },
   journey: {
@@ -378,35 +378,35 @@ export const defaultSiteContent: SiteContent = {
         role: "Client",
         serviceUsed: "Network Security & IT Infrastructure – Ghana",
         text: "Lambodra Group delivered a complete IT infrastructure and network security solution in Ghana for our corporate office. Their Fortigate firewall and network setup improved system stability and ensured 99.8% uptime. A reliable IT partner for growing businesses.",
-        imageUrl: "https://lambodragroup.com/wp-content/uploads/2026/02/03.jpg"
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/testi-1.png"
       },
       {
         name: "Chinedu Okafor",
         role: "Client",
         serviceUsed: "VOIP & Telecommunication Solutions – Nigeria",
         text: "We implemented Lambodra Group's VOIP and IP PBX cloud calling solution in Nigeria, and the results were immediate. Call quality improved, downtime reduced, and we achieved nearly 30% cost savings on our communication expenses.",
-        imageUrl: "https://lambodragroup.com/wp-content/uploads/2026/02/01.jpg"
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/testi-2.png"
       },
       {
         name: "Ahmed Al Maktoum",
         role: "Client",
         serviceUsed: "ERP & Microsoft Solutions – Dubai",
         text: "Lambodra Group's ERP and Microsoft business solutions in Dubai helped us streamline finance, inventory, and reporting. Manual errors reduced by over 40%, and management visibility improved significantly.",
-        imageUrl: "https://lambodragroup.com/wp-content/uploads/2026/02/02.jpg"
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/testi-3.png"
       },
       {
         name: "Jason Miller",
         role: "Client",
         serviceUsed: "Cloud & Web Solutions – Canada",
         text: "For our expansion in Canada, Lambodra Group delivered secure cloud computing and web solutions tailored to our business needs. Their DevOps support ensured scalability, security, and smooth deployment.",
-        imageUrl: "https://lambodragroup.com/wp-content/uploads/2026/02/04.jpg"
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/testi-1.png"
       },
       {
         name: "Anna Kowalska",
         role: "Client",
         serviceUsed: "CCTV & Security Solutions – Poland",
         text: "Lambodra Group installed a robust CCTV and security surveillance system in Poland for our warehouse operations. Monitoring efficiency improved, incidents reduced, and their support team is highly responsive.",
-        imageUrl: "https://lambodragroup.com/wp-content/uploads/2026/02/05.jpg"
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/testi-2.png"
       }
     ]
   },

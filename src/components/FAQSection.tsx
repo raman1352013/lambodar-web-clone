@@ -10,6 +10,8 @@ const FAQSection = () => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
+  const fallbackImage = "https://lambodragroup.com/wp-content/uploads/2025/12/faqleftsidepic-new.png";
+
   return (
     <section className="py-20 bg-white font-sans">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -18,9 +20,12 @@ const FAQSection = () => {
           {/* Left Side FAQ Graphic Image */}
           <div className="flex justify-center">
             <img
-              src="https://lambodragroup.com/wp-content/uploads/2026/05/faqleftsidepic-new.png"
+              src={content.faq.leftImageUrl || fallbackImage}
               alt="Need Help FAQ"
               className="max-w-full h-auto object-contain drop-shadow-xl"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = fallbackImage;
+              }}
             />
           </div>
 
@@ -39,7 +44,7 @@ const FAQSection = () => {
               {content.faq.title}
             </h2>
 
-            {/* Accordion Questions (Matching Screenshot) */}
+            {/* Accordion Questions (Exact Original 5 Questions) */}
             <div className="space-y-3 pt-2">
               {content.faq.items.map((item, idx) => {
                 const isOpen = openIndex === idx;
@@ -56,7 +61,7 @@ const FAQSection = () => {
                       onClick={() => toggle(idx)}
                       className="w-full p-4 sm:p-5 text-left flex items-center gap-3.5 font-bold text-slate-900 hover:text-[#fe7d05] transition-colors text-base"
                     >
-                      {/* Left Plus / Minus Sign (Matching User Screenshot) */}
+                      {/* Left Plus / Minus Sign */}
                       <span className={`text-lg font-bold shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-colors ${
                         isOpen ? "bg-[#fe7d05] text-white" : "text-slate-500 bg-slate-100"
                       }`}>
