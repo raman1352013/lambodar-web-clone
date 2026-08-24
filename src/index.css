@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 24% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 24% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 24% 10%;
+
+    --primary: 26 99% 51%; /* Lambodra Orange #fe7d05 */
+    --primary-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 26 99% 51%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    background-color: #fe7d05;
+    color: #ffffff;
+  }
+}
+
+@keyframes float-icon {
+  0% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.85; }
+}
+
+.animate-float-icon {
+  animation: float-icon 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px -2px rgba(254, 125, 5, 0.4); }
+  50% { box-shadow: 0 0 25px 4px rgba(254, 125, 5, 0.7); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
