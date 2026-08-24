@@ -1,4 +1,7 @@
+import { ShieldCheck, Zap, Award, TrendingUp, Users } from "lucide-react";
 import { useSiteContent } from "./SiteContentProvider";
+
+const fallbackIcons = [ShieldCheck, Zap, Award, TrendingUp, Users];
 
 const WhyChooseUs = () => {
   const { content } = useSiteContent();
@@ -7,7 +10,7 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-slate-900 text-white relative">
       <div className="container mx-auto px-4 max-w-6xl">
         
-        {/* Video Box Placeholder / Player */}
+        {/* Video Box */}
         <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl mb-12 border border-slate-800 bg-slate-950">
           <video
             muted
@@ -28,28 +31,34 @@ const WhyChooseUs = () => {
 
         {/* 5 Pillars Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {content.excellence.pillars.map((pillar, idx) => (
-            <div
-              key={idx}
-              className="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl text-center space-y-3 hover:border-[#fe7d05] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                <div className="h-16 w-16 mx-auto mb-4 flex items-center justify-center">
-                  <img
-                    src={pillar.iconUrl}
-                    alt={pillar.title}
-                    className="max-h-full max-w-full object-contain"
-                  />
+          {content.excellence.pillars.map((pillar, idx) => {
+            const FallbackIcon = fallbackIcons[idx % fallbackIcons.length];
+            return (
+              <div
+                key={idx}
+                className="bg-slate-800/80 border border-slate-700/60 p-6 rounded-2xl text-center space-y-3 hover:border-[#fe7d05] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="h-16 w-16 mx-auto mb-4 flex items-center justify-center text-[#fe7d05]">
+                    <img
+                      src={pillar.iconUrl}
+                      alt={pillar.title}
+                      className="max-h-full max-w-full object-contain"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 leading-snug">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    {pillar.description}
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2 leading-snug">
-                  {pillar.title}
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  {pillar.description}
-                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

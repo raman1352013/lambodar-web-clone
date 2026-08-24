@@ -312,27 +312,27 @@ export const defaultSiteContent: SiteContent = {
       {
         title: "The Solution Architecture",
         description: "We excel in crafting tailored solution architectures, ensuring that each client's needs are defined, described, and delivered with precision.",
-        iconUrl: "https://lavanyademo.co.in/lambodra/wp-content/uploads/2025/12/The-Solution-Architecture.png"
+        iconUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/The-Solution-Architecture.png"
       },
       {
         title: "Long-Term Tenure",
         description: "Lambodra Group is dedicated to fostering long-term partnerships, offering unwavering support and reliability throughout the journey.",
-        iconUrl: "https://lavanyademo.co.in/lambodra/wp-content/uploads/2025/12/Long-Term-Tenure.png"
+        iconUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/Long-Term-Tenure.png"
       },
       {
         title: "Exceptional Services",
         description: "Our commitment to delivering exceptional services ensures that businesses thrive with innovative and customer-focused solutions.",
-        iconUrl: "https://lavanyademo.co.in/lambodra/wp-content/uploads/2025/12/Exceptional-Services.png"
+        iconUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/Exceptional-Services.png"
       },
       {
         title: "Operational Excellence",
         description: "We strive for operational excellence, setting benchmarks in quality and efficiency to achieve superior outcomes.",
-        iconUrl: "https://lavanyademo.co.in/lambodra/wp-content/uploads/2025/12/Operational-Excellence.png"
+        iconUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/Operational-Excellence.png"
       },
       {
         title: "Building Relationships",
         description: "At Lambodra Group, great business is built on strong and enduring relationships. Trust and collaboration are the cornerstones of our success.",
-        iconUrl: "https://lavanyademo.co.in/lambodra/wp-content/uploads/2025/12/Building-Relationships.png"
+        iconUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/Building-Relationships.png"
       }
     ]
   },
