@@ -93,6 +93,66 @@ const AboutPage = () => {
         {/* Operational Pillars */}
         <WhyChooseUs />
 
+        {/* Media & News Section */}
+        <section id="media" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+          <div className="container mx-auto px-4 max-w-6xl space-y-12">
+            <div className="text-center space-y-3 max-w-2xl mx-auto">
+              <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider">
+                Press & Coverage
+              </div>
+              <h2 className="text-3xl font-extrabold text-white">Lambodra Group in the Media</h2>
+              <p className="text-slate-400 text-sm">Recognized by West African business summits, entrepreneurship forums, and technology publications.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-blue-500/50 transition-colors">
+                <span className="text-xs font-bold text-orange-400">GHANA BUSINESS AWARDS 2024</span>
+                <h3 className="text-lg font-bold text-white leading-snug">Lambodra Group Honored as Best Software & Telematics Enterprise</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">Recognized for outstanding technological innovation and deployment of GPS fleet management across Ghana and Nigeria.</p>
+              </div>
+
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-blue-500/50 transition-colors">
+                <span className="text-xs font-bold text-blue-400">ENTREPRENEUR SUMMIT 2023</span>
+                <h3 className="text-lg font-bold text-white leading-snug">CEO Awarded Innovative Tech Leader of the Year</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">Celebrating over a decade of continuous expansion in IT hardware distribution, network security, and VOIP services.</p>
+              </div>
+
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 space-y-4 hover:border-blue-500/50 transition-colors">
+                <span className="text-xs font-bold text-emerald-400">GLOBAL EXPANSION NEWS</span>
+                <h3 className="text-lg font-bold text-white leading-snug">Strategic Expansion into UAE, Zambia & Canada Markets</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">Expanding enterprise cloud footprint, hardware supply chain, and IT maintenance operations across three continents.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Corporate Social Responsibility (CSR) Section */}
+        <section id="csr" className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4 max-w-6xl space-y-12">
+            <div className="text-center space-y-3 max-w-2xl mx-auto">
+              <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                Giving Back
+              </div>
+              <h2 className="text-3xl font-extrabold text-slate-900">Corporate Social Responsibility (CSR)</h2>
+              <p className="text-slate-600 text-sm">Empowering local communities in Ghana through youth tech education, digital literacy, and sustainable enterprise initiatives.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div className="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-black">01</div>
+                <h3 className="text-xl font-bold text-slate-900">Digital Skills Training & Internship Programs</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Providing free hands-on software development, networking, and IT hardware maintenance internships for Ghanaian university graduates every year.</p>
+              </div>
+
+              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                <div className="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-black">02</div>
+                <h3 className="text-xl font-bold text-slate-900">Community Computer Labs & Equipment Donations</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">Donating refurbished IT hardware, desktop systems, and internet connectivity setup to schools and community learning centers in Accra and rural regions.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Certifications */}
         <AwardsSection />
 
@@ -105,3 +165,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

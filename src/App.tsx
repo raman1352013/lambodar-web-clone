@@ -12,6 +12,8 @@ import InternshipPage from "./pages/InternshipPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import ServiceDetailPage from "./pages/ServiceDetailPage.tsx";
+import NetOnWayPage from "./pages/NetOnWayPage.tsx";
+import FleethuntPage from "./pages/FleethuntPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/brand" element={<BrandPage />} />
+            <Route path="/brand/netonway" element={<NetOnWayPage />} />
+            <Route path="/netonway-isp" element={<NetOnWayPage />} />
+            <Route path="/brand/fleethunt" element={<FleethuntPage />} />
+            <Route path="/fleet-hunt" element={<FleethuntPage />} />
             <Route path="/internship" element={<InternshipPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />

@@ -200,8 +200,8 @@ export const defaultSiteContent: SiteContent = {
       ]
     },
     brandDropdown: [
-      { label: "Fleethunt", href: "/services/fleet-hunt" },
-      { label: "NetOnWay ISP", href: "/brand/netonway" },
+      { label: "Fleethunt", href: "/fleet-hunt" },
+      { label: "NetOnWay ISP", href: "/netonway-isp" },
       { label: "Fugen", href: "/services/customized-erp-solution" }
     ],
     aboutDropdown: [
