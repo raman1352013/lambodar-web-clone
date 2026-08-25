@@ -147,7 +147,30 @@ export type SiteContent = {
     erpLinks: Array<{ label: string; href: string }>;
   };
   serviceList: ServiceItem[];
-  internshipsList: InternshipJob[];
+  about: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    highlights: Array<{ title: string; desc: string }>;
+  };
+  internships: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    openings: InternshipJob[];
+  };
+  serviceDetails: {
+    eyebrow: string;
+    title: string;
+    tabs: Array<{
+      id: string;
+      label: string;
+      title: string;
+      description: string;
+      imageUrl: string;
+      subItems: Array<{ label: string; href: string }>;
+    }>;
+  };
 };
 
 export const defaultSiteContent: SiteContent = {
@@ -482,6 +505,18 @@ export const defaultSiteContent: SiteContent = {
       { label: "Custom Software Solutions", href: "/services/custom-software-solutions" }
     ]
   },
+  about: {
+    eyebrow: "About Lambodra Group",
+    title: "Engineering West Africa's Digital Backbone",
+    description:
+      "Founded with a vision to deliver enterprise-grade hardware, cybersecurity, and telematics to businesses across Ghana and beyond, Lambodra Group has grown into a trusted technology partner for 700+ commercial clients.",
+    highlights: [
+      { title: "Decade of Expertise", desc: "13+ years delivering IT, security, and telematics across West Africa." },
+      { title: "Certified Partnerships", desc: "Official gold-tier partner of Sophos, Fortinet, Microsoft & Google." },
+      { title: "24/7 Support", desc: "Round-the-clock helpdesk and on-site engineering response." },
+      { title: "Regional Footprint", desc: "Active operations in Ghana, Nigeria, UAE, Zambia, India & Canada." }
+    ]
+  },
   serviceList: [
     {
       id: "web-solution",
@@ -604,28 +639,101 @@ export const defaultSiteContent: SiteContent = {
       features: ["Virtual PABX & Hosted IP PBX", "Interactive Voice Response (IVR)", "Call Recording & Analytics", "SIP Trunking & Virtual Extensions"]
     }
   ],
-  internshipsList: [
-    {
-      id: "intern-1",
-      title: "Software Engineering Intern",
-      department: "Technology",
-      location: "Accra, Ghana",
-      type: "Full-Time",
-      experience: "Fresh Graduate / Student",
-      description: "Work on web application development, ERP customization, and API integrations.",
-      requirements: ["HTML, CSS, JavaScript, React / Node.js basics", "Problem solving mindset"]
-    },
-    {
-      id: "intern-2",
-      title: "IT & Network Security Intern",
-      department: "Infrastructure",
-      location: "Accra, Ghana",
-      type: "Full-Time",
-      experience: "IT / Networking Diploma",
-      description: "Assist engineers with Sophos firewalls, CCTV deployments, and network rack installations.",
-      requirements: ["Networking fundamentals (TCP/IP, DNS)", "Hardware troubleshooting skills"]
-    }
-  ]
+  internships: {
+    eyebrow: "Join Our Team",
+    title: "Internship & Graduate Program",
+    subtitle: "Kick-start your technology career with hands-on enterprise projects across Ghana and West Africa.",
+    openings: [
+      {
+        id: "intern-1",
+        title: "Software Engineering Intern",
+        department: "Technology",
+        location: "Accra, Ghana",
+        type: "Full-Time",
+        experience: "Fresh Graduate / Student",
+        description: "Work on web application development, ERP customization, and API integrations.",
+        requirements: ["HTML, CSS, JavaScript, React / Node.js basics", "Problem solving mindset"]
+      },
+      {
+        id: "intern-2",
+        title: "IT & Network Security Intern",
+        department: "Infrastructure",
+        location: "Accra, Ghana",
+        type: "Full-Time",
+        experience: "IT / Networking Diploma",
+        description: "Assist engineers with Sophos firewalls, CCTV deployments, and network rack installations.",
+        requirements: ["Networking fundamentals (TCP/IP, DNS)", "Hardware troubleshooting skills"]
+      }
+    ]
+  },
+  serviceDetails: {
+    eyebrow: "Our Offerings",
+    title: "Products and Services That Power Businesses",
+    tabs: [
+      {
+        id: "cloud-web",
+        label: "Cloud And Web Solution",
+        title: "Detailing of our Project",
+        description: "Helping businesses build, manage, and scale their digital presence with modern cloud-driven technologies.",
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/cloud-and-web-solution.png",
+        subItems: [
+          { label: "Web Solution", href: "/services/web-solution" },
+          { label: "Cloud & DevOps", href: "/services/cloud-calling-solution" },
+          { label: "Digital Marketing", href: "/services/digital-marketing" },
+          { label: "Mobile App Development", href: "/services/custom-software-solutions" }
+        ]
+      },
+      {
+        id: "network-security",
+        label: "Network & Security",
+        title: "Network & Security",
+        description: "Securing business networks with advanced threat protection and enterprise-grade security solutions.",
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/network-and-security-solution.png",
+        subItems: [
+          { label: "Sophos", href: "/services/sophos" },
+          { label: "Fortigate", href: "/services/fortigate" },
+          { label: "CCTV", href: "/services/cctv-solution" }
+        ]
+      },
+      {
+        id: "erp-software",
+        label: "Erp & Software Solution",
+        title: "Erp & Software Solution",
+        description: "Optimizing business processes through integrated software and productivity platforms.",
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/erp.png",
+        subItems: [
+          { label: "Fugen ERP", href: "/services/customized-erp-solution" },
+          { label: "Microsoft Solutions", href: "/services/microsoft-solution" },
+          { label: "Google Workspace", href: "/services/google-workspace" },
+          { label: "Tally Solutions", href: "/services/tally-solutions" },
+          { label: "Customized Software Solution", href: "/services/custom-software-solutions" }
+        ]
+      },
+      {
+        id: "telecom",
+        label: "Telecommunication Solution",
+        title: "Telecommunication Solution",
+        description: "Delivering reliable communication systems for uninterrupted business connectivity.",
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/telecomunication-solution.png",
+        subItems: [
+          { label: "Cloud Calling Solution", href: "/services/cloud-calling-solution" },
+          { label: "ISP", href: "/netonway-isp" }
+        ]
+      },
+      {
+        id: "vehicle-tracking",
+        label: "Vehicle Tracking Solution",
+        title: "Vehicle Tracking Solution",
+        description: "Providing real-time tracking and control to improve fleet efficiency and operational visibility.",
+        imageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/vehicle-tracking-solutionfleet-.png",
+        subItems: [
+          { label: "Fleethunt", href: "/fleet-hunt" },
+          { label: "Protrack", href: "/fleet-hunt" },
+          { label: "Vehicle Management", href: "/fleet-hunt" }
+        ]
+      }
+    ]
+  }
 };
 
 export function mergeSiteContent(sanityData?: Partial<SiteContent> | null): SiteContent {
@@ -640,12 +748,15 @@ export function mergeSiteContent(sanityData?: Partial<SiteContent> | null): Site
     offerings: { ...defaultSiteContent.offerings, ...(sanityData.offerings || {}) },
     strength: { ...defaultSiteContent.strength, ...(sanityData.strength || {}) },
     excellence: { ...defaultSiteContent.excellence, ...(sanityData.excellence || {}) },
+    about: { ...defaultSiteContent.about, ...(sanityData.about || {}) },
     faq: { ...defaultSiteContent.faq, ...(sanityData.faq || {}) },
     supportBanner: { ...defaultSiteContent.supportBanner, ...(sanityData.supportBanner || {}) },
     testimonials: { ...defaultSiteContent.testimonials, ...(sanityData.testimonials || {}) },
     awards: { ...defaultSiteContent.awards, ...(sanityData.awards || {}) },
     contact: { ...defaultSiteContent.contact, ...(sanityData.contact || {}) },
-    footer: { ...defaultSiteContent.footer, ...(sanityData.footer || {}) }
+    footer: { ...defaultSiteContent.footer, ...(sanityData.footer || {}) },
+    internships: { ...defaultSiteContent.internships, ...(sanityData.internships || {}) },
+    serviceDetails: { ...defaultSiteContent.serviceDetails, ...(sanityData.serviceDetails || {}) }
   };
 }
 

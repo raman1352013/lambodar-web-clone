@@ -22,15 +22,15 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-sans px-3 sm:px-4 pt-3">
       
-      {/* Main Navbar */}
-      <nav className={`transition-all duration-300 ${
+      {/* Floating Rounded Navbar Shell */}
+      <nav className={`mx-auto max-w-7xl transition-all duration-300 rounded-2xl ${
         isScrolled
-          ? "bg-white shadow-md py-2 border-b border-slate-200"
-          : "bg-white/95 backdrop-blur-sm py-3 border-b border-slate-100"
+          ? "bg-white shadow-lg border border-slate-200 py-2"
+          : "bg-white/95 backdrop-blur-md shadow-md border border-slate-100 py-3"
       }`}>
-        <div className="container mx-auto px-4 flex items-center justify-between">
+        <div className="px-4 flex items-center justify-between">
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
@@ -287,9 +287,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer - matches floating rounded style */}
       {isMobileOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 py-6 space-y-4 shadow-xl">
+        <div className="mx-auto max-w-7xl mt-2 lg:hidden bg-white border border-slate-200 rounded-2xl px-4 py-5 space-y-3 shadow-lg">
           <Link to="/" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Home</Link>
           <Link to="/brand" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Brand</Link>
           <Link to="/about" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">About Us</Link>

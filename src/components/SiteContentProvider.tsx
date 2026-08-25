@@ -14,8 +14,74 @@ import {
   internshipsListQuery,
   brandPartnersListQuery,
   awardsListQuery,
-  type SiteContent 
+  type SiteContent,
+  type ServiceItem,
+  type TimelineMilestone,
+  type InternshipJob,
 } from "@/lib/siteContent";
+
+// Loosely-typed Sanity response shapes (CMS payloads are dynamic).
+type BrandingData = Partial<SiteContent["branding"]>;
+type NavigationData = Partial<SiteContent["navigation"]>;
+type FooterData = Partial<SiteContent["footer"]>;
+type TestimonialDoc = {
+  _id?: string;
+  id?: string;
+  name?: string;
+  serviceUsed?: string;
+  role?: string;
+  company?: string;
+  text?: string;
+  content?: string;
+  imageUrl?: string;
+  avatarUrl?: string;
+};
+type FaqDoc = { question?: string; q?: string; answer?: string; a?: string };
+type MilestoneDoc = TimelineMilestone;
+type InternshipDoc = InternshipJob;
+type SanityServiceDoc = {
+  _id?: string;
+  id?: string;
+  title?: string;
+  slug?: { current?: string } | string;
+  category?: string;
+  shortDescription?: string;
+  fullDescription?: string;
+  iconUrl?: string;
+  imageUrl?: string;
+  features?: string[];
+  benefits?: string[];
+};
+type SanityAwardDoc = {
+  _id?: string;
+  title?: string;
+  issuer?: string;
+  year?: string;
+  description?: string;
+  imageUrl?: string;
+};
+type SanityInternshipDoc = {
+  _id?: string;
+  id?: string;
+  title?: string;
+  department?: string;
+  location?: string;
+  type?: string;
+  experience?: string;
+  description?: string;
+  requirements?: string[];
+};
+type BrandPartnerDoc = {
+  _id?: string;
+  id?: string;
+  name?: string;
+  slug?: { current?: string } | string;
+  tier?: string;
+  category?: string;
+  description?: string;
+  logoUrl?: string;
+  targetServiceSlug?: string;
+};
 
 type SiteContentContextValue = {
   content: SiteContent;
@@ -66,16 +132,16 @@ export const SiteContentProvider = ({ children }: { children: ReactNode }) => {
           awards
         ] = await Promise.all([
           safeFetch<Partial<SiteContent> | null>(siteContentQuery, null),
-          safeFetch<any>(brandingQuery, null),
-          safeFetch<any>(navigationQuery, null),
-          safeFetch<any>(footerQuery, null),
-          safeFetch<any[]>(servicesListQuery, []),
-          safeFetch<any[]>(testimonialsListQuery, []),
-          safeFetch<any[]>(faqListQuery, []),
-          safeFetch<any[]>(milestonesListQuery, []),
-          safeFetch<any[]>(internshipsListQuery, []),
-          safeFetch<any[]>(brandPartnersListQuery, []),
-          safeFetch<any[]>(awardsListQuery, []),
+          safeFetch<BrandingData | null>(brandingQuery, null),
+          safeFetch<NavigationData | null>(navigationQuery, null),
+          safeFetch<FooterData | null>(footerQuery, null),
+          safeFetch<SanityServiceDoc[]>(servicesListQuery, []),
+          safeFetch<TestimonialDoc[]>(testimonialsListQuery, []),
+          safeFetch<FaqDoc[]>(faqListQuery, []),
+          safeFetch<MilestoneDoc[]>(milestonesListQuery, []),
+          safeFetch<SanityInternshipDoc[]>(internshipsListQuery, []),
+          safeFetch<BrandPartnerDoc[]>(brandPartnersListQuery, []),
+          safeFetch<SanityAwardDoc[]>(awardsListQuery, []),
         ]);
 
         if (!cancelled) {
@@ -85,27 +151,62 @@ export const SiteContentProvider = ({ children }: { children: ReactNode }) => {
             branding: brandingData ? { ...merged.branding, ...brandingData } : merged.branding,
             navigation: navigationData ? { ...merged.navigation, ...navigationData } : merged.navigation,
             footer: footerData ? { ...merged.footer, ...footerData } : merged.footer,
-            serviceList: services && services.length > 0 ? services : merged.serviceList,
-            testimonials: testimonials && testimonials.length > 0 
-              ? { 
-                  ...merged.testimonials, 
-                  items: testimonials.map(t => ({
+            serviceList: services && services.length > 0
+              ? services.map((s): ServiceItem => ({
+                  id: s._id || s.id || "",
+                  title: s.title || "",
+                  slug: typeof s.slug === "string" ? s.slug : (s.slug?.current as string) || s._id || s.id || "",
+                  category: s.category || "",
+                  shortDescription: s.shortDescription || "",
+                  fullDescription: s.fullDescription,
+                  iconUrl: s.iconUrl,
+                  imageUrl: s.imageUrl,
+                  features: Array.isArray(s.features) ? s.features : [],
+                  benefits: Array.isArray(s.benefits) ? s.benefits : [],
+                }))
+              : merged.serviceList,
+            testimonials: testimonials && testimonials.length > 0
+              ? {
+                  ...merged.testimonials,
+                  items: testimonials.map((t) => ({
                     id: t._id || t.id || Math.random().toString(),
                     name: t.name || "Client",
                     serviceUsed: t.serviceUsed || t.role || t.company || "Client Partner",
                     text: t.text || t.content || "",
                     imageUrl: t.imageUrl || t.avatarUrl || "https://lambodragroup.com/wp-content/uploads/2025/12/testi-1.png",
-                  })) 
-                } 
+                  })),
+                }
               : merged.testimonials,
             faq: faqs && faqs.length > 0
-              ? { ...merged.faq, items: faqs.map(f => ({ q: f.question || f.q, a: f.answer || f.a })) }
+              ? { ...merged.faq, items: faqs.map((f) => ({ q: f.question || f.q, a: f.answer || f.a })) }
               : merged.faq,
             journey: milestones && milestones.length > 0
-              ? { ...merged.journey, milestones }
+              ? { ...merged.journey, milestones: milestones.map((m) => ({ year: m.year, title: m.title, subtitle: m.subtitle, location: m.location })) }
               : merged.journey,
+            awards: awards && awards.length > 0
+              ? {
+                  ...merged.awards,
+                  items: awards.map((a) => ({
+                    title: a.title || "",
+                    caption: a.issuer ? `${a.issuer}${a.year ? " | " + a.year : ""}` : "",
+                    imageUrl: a.imageUrl || "",
+                  })),
+                }
+              : merged.awards,
             internships: internships && internships.length > 0
-              ? { ...merged.internships, openings: internships }
+              ? {
+                  ...merged.internships,
+                  openings: internships.map((j) => ({
+                    id: j._id || j.id || "",
+                    title: j.title || "",
+                    department: j.department || "General",
+                    location: j.location || "Accra, Ghana",
+                    type: j.type || "Full-Time",
+                    experience: j.experience || "",
+                    description: j.description || "",
+                    requirements: Array.isArray(j.requirements) ? j.requirements : [],
+                  })),
+                }
               : merged.internships,
           } as SiteContent;
 
