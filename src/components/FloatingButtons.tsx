@@ -54,16 +54,6 @@ const FloatingButtons = () => {
             1
           </span>
         </a>
-
-        {/* Call Icon Button */}
-        <a
-          href={`tel:${phoneClean}`}
-          className="flex h-11 w-11 items-center justify-center rounded-full bg-[#fe7d05] text-white shadow-lg hover:scale-110 transition-transform"
-          aria-label="Call us"
-        >
-          <Phone className="h-5 w-5" />
-        </a>
-
       </div>
     </>
   );
