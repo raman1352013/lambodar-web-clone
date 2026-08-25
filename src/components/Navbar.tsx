@@ -7,6 +7,8 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const { content } = useSiteContent();
   const location = useLocation();
 
@@ -290,12 +292,61 @@ const Navbar = () => {
 
       {/* Mobile Drawer - matches floating rounded style */}
       {isMobileOpen && (
-        <div className="mx-auto max-w-7xl mt-2 lg:hidden bg-white border border-slate-200 rounded-2xl px-4 py-5 space-y-3 shadow-lg">
+        <div className="mx-auto max-w-7xl mt-2 lg:hidden bg-white border border-slate-200 rounded-2xl px-4 py-5 space-y-3 shadow-lg max-h-[80vh] overflow-y-auto">
           <Link to="/" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Home</Link>
+          
+          {/* Mobile Products Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              className="w-full flex items-center justify-between text-base font-semibold text-slate-900 hover:text-[#fe7d05] py-1"
+            >
+              <span>Products</span>
+              <ChevronDown className={`h-4 w-4 transition-transform ${mobileProductsOpen ? "rotate-180 text-[#fe7d05]" : ""}`} />
+            </button>
+            {mobileProductsOpen && (
+              <div className="pl-3 pt-2 pb-1 space-y-2 text-sm border-l-2 border-orange-300 my-1 bg-orange-50/50 rounded-r-xl">
+                <Link to="/services/web-solution" className="block font-medium text-slate-800 hover:text-[#fe7d05]">Web Solution</Link>
+                <Link to="/services/sophos" className="block font-medium text-slate-800 hover:text-[#fe7d05]">Sophos Security</Link>
+                <Link to="/services/fortigate" className="block font-medium text-slate-800 hover:text-[#fe7d05]">FortiGate Firewall</Link>
+                <Link to="/services/customized-erp-solution" className="block font-medium text-slate-800 hover:text-[#fe7d05]">Fugen ERP</Link>
+                <Link to="/services/fleet-hunt" className="block font-medium text-slate-800 hover:text-[#fe7d05]">GPS Vehicle Tracking</Link>
+                <Link to="/services/cloud-calling-solution" className="block font-medium text-slate-800 hover:text-[#fe7d05]">Cloud Calling VOIP</Link>
+              </div>
+            )}
+          </div>
+
           <Link to="/brand" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Brand</Link>
           <Link to="/about" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">About Us</Link>
           <Link to="/internship" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Internship</Link>
           <Link to="/contact" className="block text-base font-semibold text-slate-900 hover:text-[#fe7d05]">Contact Us</Link>
+
+          {/* Mobile Login Accordion */}
+          <div>
+            <button
+              onClick={() => setMobileLoginOpen(!mobileLoginOpen)}
+              className="w-full flex items-center justify-between text-base font-semibold text-slate-900 hover:text-[#fe7d05] py-1"
+            >
+              <span>Login</span>
+              <ChevronDown className={`h-4 w-4 transition-transform ${mobileLoginOpen ? "rotate-180 text-[#fe7d05]" : ""}`} />
+            </button>
+            {mobileLoginOpen && (
+              <div className="pl-3 pt-2 pb-1 space-y-2 text-sm border-l-2 border-orange-300 my-1 bg-orange-50/50 rounded-r-xl">
+                {content.navigation.loginDropdown.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block font-medium text-slate-800 hover:text-[#fe7d05]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
         </div>
       )}
 
