@@ -35,11 +35,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img
-              src={content?.branding?.logoUrl || "https://lambodragroup.com/wp-content/uploads/2025/12/logo-1.png"}
+              src={content?.branding?.logoUrl || "https://lambodragroup.com/wp-content/uploads/2025/12/logo.png"}
               alt={content?.branding?.brandName || "Lambodra Group"}
               className="h-12 md:h-14 w-auto object-contain"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://lambodragroup.com/wp-content/uploads/2025/12/logo-1.png";
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/images/logo.png";
               }}
             />
           </Link>

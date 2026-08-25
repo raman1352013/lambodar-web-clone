@@ -240,8 +240,8 @@ export const defaultSiteContent: SiteContent = {
     ]
   },
   hero: {
-    bannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/banner-1.png",
-    mobileBannerImageUrl: "https://lambodragroup.com/wp-content/uploads/2025/12/banner-1.png",
+    bannerImageUrl: "/images/banner-1.png",
+    mobileBannerImageUrl: "/images/banner-1.png",
     ctaHref: "/contact"
   },
   journey: {

@@ -49,11 +49,12 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="bg-white p-3 rounded-full inline-block shadow-sm border border-amber-200">
               <img
-                src={content?.footer?.logoUrl || "https://lambodragroup.com/wp-content/uploads/2025/12/logo-1.png"}
+                src={content?.footer?.logoUrl || "https://lambodragroup.com/wp-content/uploads/2025/12/ftrlogo.png"}
                 alt="Lambodra Group Logo"
                 className="h-20 sm:h-24 w-auto object-contain"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://lambodragroup.com/wp-content/uploads/2025/12/ftrlogo.png";
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/ftrlogo.png";
                 }}
               />
             </div>
