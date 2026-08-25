@@ -71,18 +71,18 @@ const Navbar = () => {
 
               {/* Fullwidth / Large Mega Menu Dropdown Card matching Screenshot 2 */}
               {activeDropdown === "products" && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[920px] bg-[#FFF5E1] border border-orange-200/90 rounded-3xl shadow-2xl p-6 grid grid-cols-4 gap-6 text-slate-900 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[1050px] max-w-[95vw] bg-[#FFF6EA] border border-orange-200/90 rounded-3xl shadow-2xl p-7 grid grid-cols-4 gap-6 text-slate-900 animate-in fade-in slide-in-from-top-2 duration-200 z-50">
                   
                   {/* Col 1: Cloud & Web + Hardware */}
-                  <div className="space-y-5">
+                  <div className="space-y-6">
                     <div className="space-y-3">
-                      <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                      <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                         Cloud and Web Solution
                       </div>
                       <ul className="space-y-2 text-sm pl-1">
                         {content.navigation.productsMegaMenu.cloudWeb.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                            <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                            <span className="text-[#fe6b00] text-sm font-bold">•</span>
                             <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                               {item.label}
                             </Link>
@@ -92,13 +92,13 @@ const Navbar = () => {
                     </div>
 
                     <div className="space-y-3 pt-1">
-                      <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                      <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                         Computer Hardware
                       </div>
                       <ul className="space-y-2 text-sm pl-1">
                         {content.navigation.productsMegaMenu.hardware.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                            <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                            <span className="text-[#fe6b00] text-sm font-bold">•</span>
                             <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                               {item.label}
                             </Link>
@@ -109,15 +109,15 @@ const Navbar = () => {
                   </div>
 
                   {/* Col 2: Network & Security + Vehicle Tracking */}
-                  <div className="space-y-5">
+                  <div className="space-y-6">
                     <div className="space-y-3">
-                      <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                      <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                         Network & Security
                       </div>
                       <ul className="space-y-2 text-sm pl-1">
                         {content.navigation.productsMegaMenu.networkSecurity.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                            <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                            <span className="text-[#fe6b00] text-sm font-bold">•</span>
                             <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                               {item.label}
                             </Link>
@@ -127,13 +127,13 @@ const Navbar = () => {
                     </div>
 
                     <div className="space-y-3 pt-1">
-                      <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                      <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                         Vehicle Tracking Solution
                       </div>
                       <ul className="space-y-2 text-sm pl-1">
                         {content.navigation.productsMegaMenu.vehicleTracking.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                            <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                            <span className="text-[#fe6b00] text-sm font-bold">•</span>
                             <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                               {item.label}
                             </Link>
@@ -145,13 +145,13 @@ const Navbar = () => {
 
                   {/* Col 3: ERP & Software */}
                   <div className="space-y-3">
-                    <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                    <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                       ERP & Software Solution
                     </div>
                     <ul className="space-y-2 text-sm pl-1">
                       {content.navigation.productsMegaMenu.erpSoftware.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                          <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                        <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                          <span className="text-[#fe6b00] text-sm font-bold">•</span>
                           <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                             {item.label}
                           </Link>
@@ -161,15 +161,15 @@ const Navbar = () => {
                   </div>
 
                   {/* Col 4: Telecom + CTA Banner */}
-                  <div className="space-y-4">
+                  <div className="space-y-6">
                     <div className="space-y-3">
-                      <div className="bg-[#fe6b00] text-white px-3 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-center shadow-sm">
+                      <div className="bg-[#fe6b00] text-white px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider text-center shadow-sm block w-full">
                         Telecommunication Solution
                       </div>
                       <ul className="space-y-2 text-sm pl-1">
                         {content.navigation.productsMegaMenu.telecom.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-medium">
-                            <span className="text-[#fe6b00] text-xs font-bold">•</span>
+                          <li key={idx} className="flex items-center gap-2 text-slate-800 font-semibold">
+                            <span className="text-[#fe6b00] text-sm font-bold">•</span>
                             <Link to={item.href} className="hover:text-[#fe6b00] transition-colors">
                               {item.label}
                             </Link>
@@ -178,12 +178,12 @@ const Navbar = () => {
                       </ul>
                     </div>
 
-                    <div className="pt-2">
+                    <div className="pt-1">
                       <a 
                         href={`https://api.whatsapp.com/send?phone=233551122233`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block rounded-2xl overflow-hidden hover:scale-105 transition-transform shadow-lg border border-purple-300"
+                        className="block rounded-2xl overflow-hidden hover:scale-105 transition-transform shadow-lg border border-purple-200"
                       >
                         <img
                           src="https://lambodragroup.com/wp-content/uploads/2025/12/CTA_banner.png"
