@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import { useSiteContent } from "@/components/SiteContentProvider";
+import { submitContactToSanity } from "@/lib/sanity";
 import { Mail, Phone, MapPin, CheckSquare } from "lucide-react";
 import { toast } from "sonner";
 
@@ -27,15 +28,17 @@ const ContactPage = () => {
     }
     setIsSubmitting(true);
 
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
     const newSubmission = {
       id: Date.now().toString(),
-      name: `${formData.firstName} ${formData.lastName}`.trim(),
+      name: fullName,
       email: formData.email,
       subject: formData.subject,
       message: formData.message,
       submittedAt: new Date().toISOString(),
     };
 
+    // 1. Save to LocalStorage fallback
     try {
       const existing = JSON.parse(localStorage.getItem("lambodra_contact_submissions") || "[]");
       localStorage.setItem("lambodra_contact_submissions", JSON.stringify([newSubmission, ...existing]));
@@ -43,18 +46,28 @@ const ContactPage = () => {
       console.warn("Storage warning:", storageErr);
     }
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success("Thank you! Your message has been sent successfully.");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-        recaptchaChecked: false,
+    // 2. Submit to Sanity Studio CMS
+    try {
+      await submitContactToSanity({
+        name: fullName,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
       });
-    }, 600);
+    } catch (sanityErr) {
+      console.warn("Sanity API error:", sanityErr);
+    }
+
+    setIsSubmitting(false);
+    toast.success("Thank you! Your message has been sent successfully.");
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+      recaptchaChecked: false,
+    });
   };
 
   return (
